@@ -1,12 +1,16 @@
 import WeatherCard from '../../components/WeatherCard'
 import '../../styles/main.scss'
+import AirPollutionContainer from '../AirPollutionContainer/AirPollutionContainer';
 import CurrentContainer from '../CurrentContainer/CurrentContainer';
+import PrecipitationContainer from '../PrecipitationContainer/PrecipitationContainer';
 
 function App() {
   return (
     <div className="main-container">
       <WeatherCard/>
       <CurrentContainer/>
+      <AirPollutionContainer/>
+      <PrecipitationContainer/>
     </div>
   );
 }
