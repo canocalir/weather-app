@@ -11,21 +11,24 @@ const FetchContextProvider = ({children, watch, settings}) => {
   const [fetchedData, setData] = useState([]);
   const [currentWeather, setCurrentWeather] = useState([]);
 
-  const { latitude,longitude,timestamp,accuracy,speed,heading,
-    error } = useCurrentLocation(watch, settings);
+  const { latitude,longitude } = useCurrentLocation(watch, settings);
 
   const url = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=hourly,daily&units=metric&appid=${process.env.REACT_APP_API_KEY}`;
 
   const loadData = async () => {
-    try {
+    try 
+    {
       setLoading(true);
       const response = await Axios(url);
       const wdata = await response.data;
       setData(wdata);
       setCurrentWeather(wdata.current);
-    } catch (error) {
+    } 
+    catch (error) {
       console.log(error);
-    } finally {
+    } 
+    finally 
+    {
       setTimeout(() => {
         setLoading(false);
       }, 3000);
@@ -33,7 +36,7 @@ const FetchContextProvider = ({children, watch, settings}) => {
   };
 
   useEffect(() => {
-    loadData();
+    latitude && longitude ? loadData() : setLoading(true)
   }, [latitude, longitude]);
 
   return (
