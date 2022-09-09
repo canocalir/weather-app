@@ -2,6 +2,7 @@ import LocationFinder from '../LocationFinder/LocationFinder'
 import './HeaderSearch.scss'
 
 const HeaderSearch = () => {
+
     return(
         <div className="search-bar">
             <input 
