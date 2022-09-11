@@ -6,15 +6,15 @@ import "./SearchButton.scss";
 import Axios from "axios";
 import { useFetch } from "../../shared/hooks/useFetch";
 
-const LocationFinder = ({ urlSearch }) => {
-  const { searchData, setSearchData } = useFetch();
+const SearchButton = ({ urlSearch }) => {
+  const { setSearchData, setCityName } = useFetch();
 
   const citySearch = async () => {
     try {
       const cityresponse = await Axios(urlSearch);
       const cdata = await cityresponse.data;
-      console.log(cdata);
       setSearchData(cdata);
+      setCityName(cdata.name);
     } catch (error) {
       Swal("Oops", "You must Enter a Valid City Name", "error");
     }
@@ -27,4 +27,4 @@ const LocationFinder = ({ urlSearch }) => {
   );
 };
 
-export default LocationFinder;
+export default SearchButton;

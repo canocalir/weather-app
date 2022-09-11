@@ -1,16 +1,19 @@
 import { useFetch } from '../../shared/hooks/useFetch';
 import './CurrentContainer.scss'
 
+import TodayWeatherDetails from '../../components/TodayWeatherDetails/TodayWeatherDetails';
+
 const CurrentContainer = () => {
+  const { cityName, locationData, searchData } = useFetch();
 
-  const { currentWeather } = useFetch();
-
-  
 
   return (
     <div className='current-container'>
-        <h2>Today's Weather</h2>
-        <p>{Math.round(currentWeather.feels_like)}</p> 
+        <h2>Today's Weather in { !cityName ? "Your Location" : cityName }</h2>
+        <TodayWeatherDetails 
+        searchData={searchData}
+        locationData={locationData}
+        />
     </div>
   )
 }
