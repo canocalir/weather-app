@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import LocationFinder from '../LocationFinder/LocationFinder'
+import SearchButton from '../SearchButton/SearchButton'
 
 import './HeaderSearch.scss'
 
@@ -17,7 +17,7 @@ const HeaderSearch = () => {
             type="text" 
             id='city'
             placeholder='Enter a city...'/>
-            <LocationFinder 
+            <SearchButton 
             urlSearch={urlSearch}
             />
         </div>

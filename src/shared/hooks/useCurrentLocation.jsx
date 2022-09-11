@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Swal from "sweetalert";
 
 export const useCurrentLocation = () => {
   const [position, setPosition] = useState({
@@ -15,11 +16,13 @@ export const useCurrentLocation = () => {
   };
   const onError = (error) => {
     setError(error.message);
-  };
+    Swal("Oops", "You must allow or unblock Location Access ", "error");
+  }
+
   useEffect(() => {
     const geo = navigator.geolocation;
     if (!geo) {
-      setError('Geolocation is not supported');
+      setError('Geolocation is not supported')
       return;
     }
     const watcher = geo.watchPosition(onChange, onError);
