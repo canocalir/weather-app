@@ -7,14 +7,6 @@ const FetchContext = createContext();
 
 const FetchContextProvider = ({ children, watch, settings }) => {
   const [loading, setLoading] = useState(false);
-  const [data, setData] = useState({
-    lat: "",
-    lon: "",
-  });
-  const [locationData, setLocationData] = useState({
-    temp: "",
-    wind_speed: "",
-  });
 
   const [searchData, setSearchData] = useState({
     main: {
@@ -29,18 +21,23 @@ const FetchContextProvider = ({ children, watch, settings }) => {
 
   const { latitude, longitude } = useCurrentLocation(watch, settings);
 
+  const [todayWeather, setTodayWeather] = useState({
+    temp: "",
+    wind_speed: "",
+  })
+
+  const [forecastWeather, setForecastWeather] = useState([]);
+
+
   const urlWeather = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&units=metric&appid=${process.env.REACT_APP_API_KEY}`;
 
   const loadData = async () => {
     try {
       setLoading(true);
       const response = await Axios(urlWeather);
-
       const wdata = await response.data;
-
-      setData(wdata);
-
-      setLocationData(wdata.current);
+      setTodayWeather(wdata.current)
+      setForecastWeather(wdata.daily)
     } catch (error) {
       console.log(error);
     } finally {
@@ -59,12 +56,12 @@ const FetchContextProvider = ({ children, watch, settings }) => {
     <FetchContext.Provider
       value={{
         loading,
-        data,
-        locationData,
         setSearchData,
         searchData,
         cityName,
         setCityName,
+        todayWeather,
+        forecastWeather,
       }}
     >
       {children}

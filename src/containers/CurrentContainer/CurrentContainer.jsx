@@ -4,7 +4,7 @@ import './CurrentContainer.scss'
 import TodayWeatherDetails from '../../components/TodayWeatherDetails/TodayWeatherDetails';
 
 const CurrentContainer = () => {
-  const { cityName, locationData, searchData } = useFetch();
+  const { cityName, todayWeather, searchData } = useFetch();
 
 
   return (
@@ -12,7 +12,7 @@ const CurrentContainer = () => {
         <h2>Today's Weather in { !cityName ? "Your Location" : cityName }</h2>
         <TodayWeatherDetails 
         searchData={searchData}
-        locationData={locationData}
+        todayWeather={todayWeather}
         />
     </div>
   )

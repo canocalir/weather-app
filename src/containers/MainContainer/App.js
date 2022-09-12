@@ -5,7 +5,7 @@ import "../../styles/main.scss";
 import AirPollutionContainer from "../AirPollutionContainer/AirPollutionContainer";
 import CurrentContainer from "../CurrentContainer/CurrentContainer";
 import HeaderContainer from "../HeaderContainer/HeaderContainer";
-import PrecipitationContainer from "../PrecipitationContainer/PrecipitationContainer";
+import ForecastContainer from "../ForecastContainer/ForecastContainer";
 
 //Components
 import Loader from "../../components/Loader/Loader";
@@ -26,7 +26,7 @@ const App = () => {
           <HeaderContainer />
           <CurrentContainer />
           <AirPollutionContainer />
-          <PrecipitationContainer />
+          <ForecastContainer />
         </>
       )}
     </div>

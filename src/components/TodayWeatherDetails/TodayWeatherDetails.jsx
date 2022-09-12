@@ -1,14 +1,13 @@
 import './TodayWeatherDetails.scss'
 
-const TodayWeatherDetails = ({ locationData, searchData }) => {
-console.log(locationData)
+const TodayWeatherDetails = ({ todayWeather, searchData }) => {
   return (
     <div className="current">
       <p className='current__degree'>
-        <span>Temperature:</span> {!searchData.main.temp ? locationData.temp: searchData.main.temp}°C
+        <span>Temperature:</span> {!searchData.main.temp ? Math.round(todayWeather.temp) : Math.round(searchData.main.temp)}°C
       </p>
       <p className="current__wind">
-        <span>Wind:</span> {!searchData.wind.speed ? locationData.wind_speed: searchData.wind.speed} m/s
+        <span>Wind:</span> {!searchData.wind.speed ? todayWeather.wind_speed: searchData.wind.speed} m/s
       </p>
     </div>
   )
