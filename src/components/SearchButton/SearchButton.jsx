@@ -8,7 +8,7 @@ import { useFetch } from "../../shared/hooks/useFetch";
 import { useState } from "react";
 import { useEffect } from "react";
 
-const SearchButton = ({ urlGetCity , cityData}) => {
+const SearchButton = ({ urlGetCity , cityData, handleClick }) => {
   const { setSearchData, setCityName, setSearchForecast, setSearchAir } = useFetch();
   
   const [ clocation, setClocation ] = useState({
@@ -19,7 +19,7 @@ const SearchButton = ({ urlGetCity , cityData}) => {
   const urlSearch = `https://api.openweathermap.org/data/2.5/onecall?lat=${clocation.lat}&lon=${clocation.lon}&units=metric&appid=${process.env.REACT_APP_API_KEY}`;
 
   const urlAirSearch = `https://api.openweathermap.org/data/2.5/air_pollution?lat=${clocation.lat}&lon=${clocation.lon}&units=metric&appid=${process.env.REACT_APP_API_KEY}`;
-
+  
   useEffect(() => {
     if(cityData !== ''){
     const getCity = async () => {
@@ -48,8 +48,13 @@ const SearchButton = ({ urlGetCity , cityData}) => {
     }
   };
 
+  const onClickHandler = (e) => {
+    citySearch();
+    handleClick();
+  }
+
   return (
-    <button onClick={citySearch} id="location">
+    <button onClick={onClickHandler} id="location">
       <FontAwesomeIcon icon={faMagnifyingGlass} />
     </button>
   );

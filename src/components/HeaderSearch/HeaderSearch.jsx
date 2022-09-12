@@ -11,12 +11,21 @@ const HeaderSearch = () => {
     
 
     const urlSearch = `https://api.openweathermap.org/data/2.5/weather?q=${cityData}&units=metric&appid=${process.env.REACT_APP_API_KEY}`;
+
+    const handleChange = (e) => {
+        setCityData(e.target.value)
+    }
+
+    const handleClick = () => {
+        setCityData('')
+    }
     
 
     return(
         <div className="search-bar">
             <input
-            onChange={(e) => setCityData(e.target.value)}
+            onChange={handleChange}
+            value={cityData}
             type="text" 
             id='city'
             placeholder='Enter a city...'/>
@@ -24,6 +33,7 @@ const HeaderSearch = () => {
             urlSearch={urlSearch}
             urlGetCity={urlGetCity}
             cityData={cityData}
+            handleClick={handleClick}
             />
         </div>
     )
