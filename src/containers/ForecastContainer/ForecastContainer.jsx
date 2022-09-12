@@ -8,7 +8,6 @@ const ForecastContainer = () => {
   const { forecastWeather } = useFetch()
 
   const threeDaysForecast = forecastWeather.slice(1, 4)
-  console.log(threeDaysForecast)
 
   return (
     <div className='forecast-container'>
