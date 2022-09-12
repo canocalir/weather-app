@@ -48,7 +48,7 @@ const SearchButton = ({ urlGetCity , cityData, handleClick }) => {
     }
   };
 
-  const onClickHandler = (e) => {
+  const onClickHandler = () => {
     citySearch();
     handleClick();
   }
