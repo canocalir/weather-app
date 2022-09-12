@@ -1,9 +1,13 @@
 .air-pollution-container {
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     grid-area: 2/4/3/6;
-    h2{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .air-heading{
         color: #349EBF;
-        text-align: center;
         font-size: 2rem;
+        margin: 0;
     }
 }

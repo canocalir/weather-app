@@ -5,17 +5,22 @@ import './ForecastContainer.scss'
 
 const ForecastContainer = () => {
 
-  const { forecastWeather } = useFetch()
+  const { forecastWeather, searchForecast } = useFetch()
 
   const threeDaysForecast = forecastWeather.slice(1, 4)
+  const threeDaysSearchForecast = searchForecast.slice(1, 4)
 
   return (
     <div className='forecast-container'>
         <h2>3 Day Forecast</h2>
         <div className='forecast-container__box-container'>
-        {threeDaysForecast.map((day, index) => (
+        {searchForecast.length
+        ? threeDaysSearchForecast.map((day, index) => ( <ForecastBox key={index} day={day} />
+        )) 
+        : threeDaysForecast.map((day, index) => (
           <ForecastBox key={index} day={day} />
-        ))}
+        ))
+        }
         </div>
     </div>
   )

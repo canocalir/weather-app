@@ -2,7 +2,7 @@ import { faSun, faMoon, faWind } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import './ForecastBox.scss'
 
-const ForecastBox = ({day,index}) => {
+const ForecastBox = ({day}) => {
   return (
     <div className='box'>
       <div className='box__temp'>

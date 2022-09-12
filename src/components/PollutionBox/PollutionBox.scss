@@ -1,0 +1,35 @@
+.air-box{
+    text-align: center;
+    gap: 2rem;
+    padding: 1rem;
+    color: #fff;
+    h2{
+        font-size: 3rem;
+        margin: 0;
+    }
+    h3{
+        font-size: 2.5rem;
+        font-weight: 600;
+        margin: 0;
+        padding: 0;
+    }
+    &__aqi-green{
+        width: 10vw;
+        background-color: #00e400;
+    }
+    &__aqi-yellow{
+        background-color: #ffff00;
+    }
+    &__aqi-orange{
+        background-color: #ff7e00;
+    }
+    &__aqi-red{
+        background-color: #ff0000;
+    }
+    &__aqi-purple{
+        background-color: #99004c;
+    }
+    &__aqi-maroon{
+        background-color: #7e0023;
+    }
+}

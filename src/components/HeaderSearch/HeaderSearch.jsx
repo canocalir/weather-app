@@ -11,6 +11,7 @@ const HeaderSearch = () => {
     
 
     const urlSearch = `https://api.openweathermap.org/data/2.5/weather?q=${cityData}&units=metric&appid=${process.env.REACT_APP_API_KEY}`;
+    
 
     return(
         <div className="search-bar">

@@ -27,17 +27,24 @@ const FetchContextProvider = ({ children, watch, settings }) => {
   })
 
   const [forecastWeather, setForecastWeather] = useState([]);
-
+  const [searchForecast, setSearchForecast] = useState([]);
+  const [airByLocation, setAirByLocation] = useState([]);
+  const [searchAir, setSearchAir] = useState([]);
 
   const urlWeather = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&units=metric&appid=${process.env.REACT_APP_API_KEY}`;
+
+  const urlAir = `https://api.openweathermap.org/data/2.5/air_pollution?lat=${latitude}&lon=${longitude}&units=metric&appid=${process.env.REACT_APP_API_KEY}`;
 
   const loadData = async () => {
     try {
       setLoading(true);
-      const response = await Axios(urlWeather);
-      const wdata = await response.data;
+      const responseWeather = await Axios(urlWeather);
+      const responseAir = await Axios(urlAir);
+      const wdata = await responseWeather.data;
+      const adata = await responseAir.data;
       setTodayWeather(wdata.current)
       setForecastWeather(wdata.daily)
+      setAirByLocation(adata.list[0].components.no2)
     } catch (error) {
       console.log(error);
     } finally {
@@ -62,6 +69,11 @@ const FetchContextProvider = ({ children, watch, settings }) => {
         setCityName,
         todayWeather,
         forecastWeather,
+        setSearchForecast,
+        searchForecast,
+        airByLocation,
+        setSearchAir,
+        searchAir,
       }}
     >
       {children}
