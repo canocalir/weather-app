@@ -44,9 +44,9 @@ const FetchContextProvider = ({ children, watch, settings }) => {
       const adata = await responseAir.data;
       setTodayWeather(wdata.current)
       setForecastWeather(wdata.daily)
-      setAirByLocation(adata.list[0].components.no2)
+      setAirByLocation(adata.list[0].main.aqi)
     } catch (error) {
-      console.log(error);
+
     } finally {
       setTimeout(() => {
         setLoading(false);

@@ -26,8 +26,8 @@ const SearchButton = ({ urlGetCity , cityData, handleClick }) => {
       const locationresponse = await Axios(urlGetCity);
       const ldata = await locationresponse.data;
       setClocation({
-        lat: ldata[0].lat || null,
-        lon: ldata[0].lon || null,
+        lat: ldata[0].lat | null,
+        lon: ldata[0].lon | null,
       })
     }
     getCity();
@@ -42,7 +42,7 @@ const SearchButton = ({ urlGetCity , cityData, handleClick }) => {
       setSearchData(cdata.current);
       setSearchForecast(cdata.daily);
       setCityName(cityData);
-      setSearchAir(adata.list[0].components.no2);
+      setSearchAir(adata.list[0].main.aqi);
     } catch (error) {
       Swal("Oops", "You must Enter a Valid City Name", "error");
     }

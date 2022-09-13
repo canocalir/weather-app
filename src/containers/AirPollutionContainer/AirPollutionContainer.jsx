@@ -5,7 +5,7 @@ const AirPollutionContainer = () => {
 
   return (
     <div className='air-pollution-container'>
-        <h2 className='air-heading'>Air Pollution Index</h2>
+        <h2 className='air-heading'>Air Quality Index</h2>
         <PollutionBox/>
     </div>
   )
