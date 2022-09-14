@@ -3,6 +3,8 @@
     gap: 2rem;
     padding: 1rem;
     color: #fff;
+    text-shadow: 0 0 0.1rem #000000;
+    
     h2{
         font-size: 3rem;
         margin: 0;
@@ -18,18 +20,25 @@
         background-color: #00e400;
     }
     &__aqi-yellow{
+        width: 10vw;
         background-color: #ffff00;
     }
     &__aqi-orange{
+        width: 10vw;
         background-color: #ff7e00;
     }
     &__aqi-red{
+        width: 10vw;
         background-color: #ff0000;
     }
     &__aqi-purple{
+        width: 10vw;
         background-color: #99004c;
     }
     &__aqi-maroon{
+        width: 10vw;
         background-color: #7e0023;
     }
 }
+
+

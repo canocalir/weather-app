@@ -3,33 +3,33 @@ import './PollutionBox.scss';
 
 const PollutionBox = () => {
     const { airByLocation, searchAir } = useFetch();
-
   return (
     <div className='air-box'>
         <div className={
-            airByLocation || searchAir <= 50 
+            airByLocation === 1 || searchAir === 1 
             ? 'air-box__aqi-green'
-            : airByLocation || searchAir <= 100
+            : airByLocation === 2 || searchAir === 2
             ? 'air-box__aqi-yellow'
-            : airByLocation || searchAir <= 150
+            : airByLocation === 3 || searchAir === 3
             ? 'air-box__aqi-orange'
-            : airByLocation || searchAir <= 200
+            : airByLocation === 4 || searchAir === 4
             ? 'air-box__aqi-red'
-            : airByLocation || searchAir <= 300
+            : airByLocation === 5 || searchAir === 5
             ? 'air-box__aqi-purple'
             : 'air-box__aqi-maroon'
         }>
-        <h2>{airByLocation 
+        <h2>{
+        searchAir.length >= 0
         ? Math.round(airByLocation)
         : Math.round(searchAir)
         }</h2>
         <h3>
             {
-            airByLocation || searchAir <= 50 ? 'Good' :
-            airByLocation || searchAir <= 100 ? 'Moderate' :
-            airByLocation || searchAir <= 150 ? 'Unhealthy-for-sensitive-groups' :
-            airByLocation || searchAir <= 200 ? 'Unhealthy' :
-            airByLocation || searchAir <= 300 ? 'Very-unhealthy' :
+            airByLocation === 1 || searchAir === 1 ? 'Good' :
+            airByLocation === 2 || searchAir === 2 ? 'Moderate' :
+            airByLocation === 3 || searchAir === 3 ? 'Unhealthy-for-sensitive-groups' :
+            airByLocation === 4 || searchAir === 4 ? 'Unhealthy' :
+            airByLocation === 5 || searchAir === 5 ? 'Very-unhealthy' :
             'Hazardous'
         }</h3>
         </div>
